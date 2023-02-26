@@ -41,7 +41,7 @@ Welcome to play around with the base model, a Trilingual Anime VITS!
 
 
 ## Fine-tuning
-It's recommended to perform fine-tuning on [Google Colab](https://colab.research.google.com/drive/1omMhfYKrAAQ7a6zOCsyqpla-wU-QyfZn?usp=sharing)
+It's recommended to perform fine-tuning on [Google Colab](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/custom.ipynb)
 because the original VITS has some dependencies that are difficult to configure.
 
 ### How long does it take? 
