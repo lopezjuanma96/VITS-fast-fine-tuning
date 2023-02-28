@@ -97,8 +97,8 @@ def run(rank, n_gpus, hps):
   net_d = MultiPeriodDiscriminator(hps.model.use_spectral_norm).cuda(rank)
 
   # load existing model
-  #_, _, _, _ = utils.load_checkpoint("./pretrained_models/G_trilingual.pth", net_g, None)
-  _, _, _, _ = utils.load_checkpoint("./pretrained_models/G_trilingual.tar", net_g, None)
+  _, _, _, _ = utils.load_checkpoint("./pretrained_models/G_trilingual.pth", net_g, None)
+  #_, _, _, _ = utils.load_checkpoint("./pretrained_models/G_spanish.pth.tar", net_g, None)
   _, _, _, _ = utils.load_checkpoint("./pretrained_models/D_trilingual.pth", net_d, None)
   epoch_str = 1
   global_step = 0
