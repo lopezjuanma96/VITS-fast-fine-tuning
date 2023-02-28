@@ -18,9 +18,10 @@ language_marks = {
     "日本語": "[JA]",
     "简体中文": "[ZH]",
     "English": "[EN]",
+    "Spanish": "[ES]",
     "Mix": "",
 }
-lang = ['日本語', '简体中文', 'English', 'Mix']
+lang = ['日本語', '简体中文', 'English', 'Spanish', 'Mix']
 def get_text(text, hps, is_symbol):
     text_norm = text_to_sequence(text, hps.symbols, [] if is_symbol else hps.data.text_cleaners)
     if hps.data.add_blank:

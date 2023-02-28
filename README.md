@@ -3,14 +3,14 @@ Forked from [here](https://github.com/Plachtaa/VITS-fast-fine-tuning) to be adap
 Ideally all changes should be done adding spanish as an option and not as a replacement, so that it then could be PRd to the main repo.
 
 TODO list:
-- [ ] Add sentences to [](user_voice/user_voice.txt) in spanish. Some valid options could be from the [Commmon Voice Dataset](https://commonvoice.mozilla.org/en/datasets), these are shorter and more accessible, or the [CSS10 Dataset](https://github.com/Kyubyong/css10), far bigger and more complex but those are the sentences the original model was trained on.
+- [x] Add sentences to [](user_voice/user_voice.txt) in spanish. Some valid options could be from the [Commmon Voice Dataset](https://commonvoice.mozilla.org/en/datasets), these are shorter and more accessible, or the [CSS10 Dataset](https://github.com/Kyubyong/css10), far bigger and more complex but those are the sentences the original model was trained on.
 - [ ] Add spanish.py to [](text), although I don't know what could be addeed there, and spanish to cleaners (the original model used multilingual cleaners, we could start on that an improve it later, as long as it does ot break the original model, which has happend to us before). More importantly, it seems [](configs/finetune_speaker.json) and [](configs/modified_finetune_speaker.json) provide one single cleaner cjke that fuses all language cleanings, so maybe that is where we should focus.
 - [ ] From above, expand_numbers on spanish.py is yet to be tackled because a number to text is a pretty big task and it might not be super necessary ye if we choose the training sentences correclty, but it should be done in the future. 
 - [ ] Find a valid link for getting the spanish model (or maybe load it on Google Drive or this same repo) from coqui-AI.
 - [ ] Add spanish model with utils.load_model() on [](finetune_speaker.py) and figure out how to set it so Spanish setting uses that.
-- [ ] Add "\[ES\]" to strip in [](user_voice_collect.py) (or maybe use a regex solution?)
+- [x] Add "\[ES\]" to strip in [](user_voice_collect.py) (or maybe use a regex solution?)
 - [ ] I see [](utils.py) has a lastest_checkpoint_path function wich default search value is "G_*.pth", which got me thinking, since we won't use G_trilingual.pth as a base model if we should change not only this behaviour but also the saving process. We should be careful not to break the English & Japanese modes when doing so to be able to do PR later.
-- [ ] Add spanish on the different points of [](VC_inference.py)
+- [x] Add spanish on the different points of [](VC_inference.py)
 - [ ] [](voice_upload.py) and [](whisper_transcribe.py) seem to be useful for character training. If that's the case we can see what we can provide to add more data to this paradigm too.
 - [ ] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
 - [ ] Since we are at it, create a README_ES.md file.
