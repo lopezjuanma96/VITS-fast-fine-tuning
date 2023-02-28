@@ -5,6 +5,7 @@ from text.mandarin import number_to_chinese, chinese_to_bopomofo, latin_to_bopom
 from text.sanskrit import devanagari_to_ipa
 from text.english import english_to_lazy_ipa, english_to_ipa2, english_to_lazy_ipa2
 from text.thai import num_to_thai, latin_to_thai
+from text.spanish import spanish_to_spanish
 # from text.shanghainese import shanghainese_to_ipa
 # from text.cantonese import cantonese_to_ipa
 # from text.ngu_dialect import ngu_dialect_to_ipa
@@ -79,6 +80,7 @@ def cjke_cleaners(text):
                   lambda x: korean_to_ipa(x.group(1))+' ', text)
     text = re.sub(r'\[EN\](.*?)\[EN\]', lambda x: english_to_ipa2(x.group(1)).replace('ɑ', 'a').replace(
         'ɔ', 'o').replace('ɛ', 'e').replace('ɪ', 'i').replace('ʊ', 'u')+' ', text)
+    text = re.sub(r'\[ES\](.*?)\[ES\]', lambda x: spanish_to_spanish(x.group(1)), text)
     text = re.sub(r'\s+$', '', text)
     text = re.sub(r'([^\.,!\?\-…~])$', r'\1.', text)
     return text
