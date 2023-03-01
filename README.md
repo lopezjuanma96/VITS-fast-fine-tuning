@@ -9,11 +9,12 @@ TODO list:
 - [ ] Find a valid link for getting the spanish model (or maybe load it on Google Drive or this same repo) from coqui-AI.
 - [x] Add spanish model with utils.load_model() on [](finetune_speaker.py) and figure out how to set it so Spanish setting uses that. **Changed utils.load_model(G_trilingual.pth) to utils.load_model(G_spanish.pth) this will make other languages impossible to use, but I couldn't find a way to include a condition on when to load which, maybe we can send language through the hps parameter of the run function, so:**
 - [ ] change utils.load_model() on [](finetune_speaker.py) to differentiate when to load spanish and when trilingual.
+- [ ] see if we can get an pretrained model in these models format, if not change the load_checkpoint function in [](utils.py) to include replace with default values when parameters are not found (such as `if 'iteration' not in model_checkpoint.keys(): model_checkpoint['iteration'] = 0`)
 - [x] Add "\[ES\]" to strip in [](user_voice_collect.py) (or maybe use a regex solution?)
 - [ ] I see [](utils.py) has a lastest_checkpoint_path function wich default search value is "G_*.pth", which got me thinking, since we won't use G_trilingual.pth as a base model if we should change not only this behaviour but also the saving process. We should be careful not to break the English & Japanese modes when doing so to be able to do PR later.
 - [x] Add spanish on the different points of [](VC_inference.py)
 - [ ] [](voice_upload.py) and [](whisper_transcribe.py) seem to be useful for character training. If that's the case we can see what we can provide to add more data to this paradigm too.
-- [ ] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
+- [x] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
 - [ ] Since we are at it, create a README_ES.md file.
 
 [中文文档请点击这里](https://github.com/Plachtaa/VITS-fast-fine-tuning/blob/main/README_ZH.md)
