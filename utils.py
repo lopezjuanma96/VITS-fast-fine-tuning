@@ -23,11 +23,11 @@ def load_checkpoint(checkpoint_path, model, optimizer=None):
     ####### Should check if this breaks training###############
     ###########################################################
     param_default = {'iteration': 0, 'learning_rate': 0.001, 'optimizer': 'AdamW'}
-    for param in ['iteration', 'learning_rate', 'optimizer', 'model']:
+    for param in ['iteration', 'learning_rate', 'optimizer']:
         if param in checkpoint_dict.keys():
-            print('model has', param, ':', checkpoint_dict[param])
+            print('on checkpoint', checkpoint_path, 'model has', param, (': ' + checkpoint_dict[param] if type(checkpoint_dict[param]) == str else 'but it is not a string'))
         else:
-            print('model has no', param, ' so setting to default', param_default[param])
+            print('on checkpoint', checkpoint_path, 'model has no', param, ' so setting to default', param_default[param])
             checkpoint_dict[param] = param_default[param]
     ###########################################################
     #END HOTFIX FOR NOT HAVING INITIALIZED MODEL IN THIS FORMAT
