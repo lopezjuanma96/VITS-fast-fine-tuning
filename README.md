@@ -6,7 +6,7 @@ TODO list:
 - [x] Add sentences to [](user_voice/user_voice.txt) in spanish. Some valid options could be from the [Commmon Voice Dataset](https://commonvoice.mozilla.org/en/datasets), these are shorter and more accessible, or the [CSS10 Dataset](https://github.com/Kyubyong/css10), far bigger and more complex but those are the sentences the original model was trained on.
 - [ ] Add spanish.py to [](text), although I don't know what could be addeed there, and spanish to cleaners (the original model used multilingual cleaners, we could start on that an improve it later, as long as it does ot break the original model, which has happend to us before). More importantly, it seems [](configs/finetune_speaker.json) and [](configs/modified_finetune_speaker.json) provide one single cleaner cjke that fuses all language cleanings, so maybe that is where we should focus.
 - [ ] From above, expand_numbers on spanish.py is yet to be tackled because a number to text is a pretty big task and it might not be super necessary ye if we choose the training sentences correclty, but it should be done in the future. 
-- [ ] Find a valid link for getting the spanish model (or maybe load it on Google Drive or this same repo) from coqui-AI.
+- [x] Find a valid link for getting the spanish model (or maybe load it on Google Drive or this same repo) from coqui-AI. **Created a [model on HuggingFace](https://huggingface.co/lopezjm96/spanishVITS)**
 - [x] Add spanish model with utils.load_model() on [](finetune_speaker.py) and figure out how to set it so Spanish setting uses that. **Changed utils.load_model(G_trilingual.pth) to utils.load_model(G_spanish.pth) this will make other languages impossible to use, but I couldn't find a way to include a condition on when to load which, maybe we can send language through the hps parameter of the run function, so:**
 - [ ] change utils.load_model() on [](finetune_speaker.py) to differentiate when to load spanish and when trilingual.
 - [ ] see if we can get an pretrained model in these models format, if not change the load_checkpoint function in [](utils.py) to include replace with default values when parameters are not found (such as `if 'iteration' not in model_checkpoint.keys(): model_checkpoint['iteration'] = 0`)
@@ -16,6 +16,20 @@ TODO list:
 - [ ] [](voice_upload.py) and [](whisper_transcribe.py) seem to be useful for character training. If that's the case we can see what we can provide to add more data to this paradigm too.
 - [x] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
 - [ ] Since we are at it, create a README_ES.md file.
+- [ ] Download part of the [CSS10 Dataset](https://www.kaggle.com/datasets/bryanpark/spanish-single-speaker-speech-dataset) to cover the same function as sample4ft did for the trilingual model.
+- [ ] Ask why this happens when using hotfix (and if it could affect training):
+```
+on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has no iteration so setting to default 0
+on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has learning_rate so setting to default 0.001
+on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has optimizer but it is not a string
+
+on checkpoint ./pretrained_models/D_trilingual.pth model has iteration but it is not a string
+on checkpoint ./pretrained_models/D_trilingual.pth model has learning_rate but it is not a string
+on checkpoint ./pretrained_models/D_trilingual.pth model has no optimizer  so setting to default AdamW
+```
+- [ ] From above: Appareantly the model from coqui is not directly compatible with this, but using it runs training as if it was a new model, so, two options:
+    - Find a way to adapt the coqui model to this
+    - First do the CSS10 Dataset item above, once that is done use it to retrain a compatible model from scratch, using it as the base user voice.
 
 [中文文档请点击这里](https://github.com/Plachtaa/VITS-fast-fine-tuning/blob/main/README_ZH.md)
 # VITS Fast Fine-tuning
