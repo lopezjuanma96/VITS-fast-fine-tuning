@@ -16,7 +16,7 @@ TODO list:
 - [ ] [](voice_upload.py) and [](whisper_transcribe.py) seem to be useful for character training. If that's the case we can see what we can provide to add more data to this paradigm too.
 - [x] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
 - [ ] Since we are at it, create a README_ES.md file.
-- [ ] Download part of the [CSS10 Dataset](https://www.kaggle.com/datasets/bryanpark/spanish-single-speaker-speech-dataset) to cover the same function as sample4ft did for the trilingual model. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/custom.ipynb)**
+- [ ] Download part of the [CSS10 Dataset](https://www.kaggle.com/datasets/bryanpark/spanish-single-speaker-speech-dataset) to cover the same function as sample4ft did for the trilingual model. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
 - [ ] Ask why this happens when using hotfix (and if it could affect training):
 ```
 on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has no iteration so setting to default 0
@@ -29,7 +29,7 @@ on checkpoint ./pretrained_models/D_trilingual.pth model has no optimizer  so se
 ```
 - [ ] From above: Appareantly the model from coqui is not directly compatible with this, but using it runs training as if it was a new model, so, two options:
     - Find a way to adapt the coqui model to this
-    - First do the CSS10 Dataset item above, once that is done use it to retrain a compatible model from scratch, using it as the base user voice. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/custom.ipynb)**
+    - First do the CSS10 Dataset item above, once that is done use it to retrain a compatible model from scratch, using it as the base user voice. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
 
 [中文文档请点击这里](https://github.com/Plachtaa/VITS-fast-fine-tuning/blob/main/README_ZH.md)
 # VITS Fast Fine-tuning
