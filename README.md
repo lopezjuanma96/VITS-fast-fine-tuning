@@ -30,6 +30,7 @@ on checkpoint ./pretrained_models/D_trilingual.pth model has no optimizer  so se
 - [ ] From above: Appareantly the model from coqui is not directly compatible with this, but using it runs training as if it was a new model, so, two options:
     - Find a way to adapt the coqui model to this
     - First do the CSS10 Dataset item above, once that is done use it to retrain a compatible model from scratch, using it as the base user voice. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
+- [ ] Ask if data_utils.py line 337 range second argument was correctly changed from 0 to -1, before it was missing checking the lowest bucket that on our data was empty (or maybe that bucket CAN NOT be empty)
 
 [中文文档请点击这里](https://github.com/Plachtaa/VITS-fast-fine-tuning/blob/main/README_ZH.md)
 # VITS Fast Fine-tuning
