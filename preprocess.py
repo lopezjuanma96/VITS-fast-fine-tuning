@@ -1,7 +1,7 @@
 import os
 if __name__ == "__main__":
     # load sampled_audio4ft
-    with open("sampled_audio4ft.txt", 'r', encoding='utf-8') as f:
+    with open("spanish_voices/transcript.txt", 'r', encoding='utf-8') as f:
         old_annos = f.readlines()
     num_old_voices = len(old_annos)
     # load user text

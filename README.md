@@ -16,7 +16,9 @@ TODO list:
 - [ ] [](voice_upload.py) and [](whisper_transcribe.py) seem to be useful for character training. If that's the case we can see what we can provide to add more data to this paradigm too.
 - [x] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
 - [ ] Since we are at it, create a README_ES.md file.
-- [ ] Download part of the [CSS10 Dataset](https://www.kaggle.com/datasets/bryanpark/spanish-single-speaker-speech-dataset) to cover the same function as sample4ft did for the trilingual model. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
+- [x] Download part of the [CSS10 Dataset](https://www.kaggle.com/datasets/bryanpark/spanish-single-speaker-speech-dataset) to cover the same function as sample4ft did for the trilingual model. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
+- [ ] Attempted this one above, but we might need a database on multiple speakers, both for attempting to train a new model from scratch and for finetunnning our speaker, so We might generate a brand new db scrapped from different sources.}
+- [ ] For whatever dataset we end up using, update or create a new config JSON (currently model uses [](configs/modified_finetune_speaker.json)) 
 - [ ] Ask why this happens when using hotfix (and if it could affect training):
 ```
 on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has no iteration so setting to default 0
