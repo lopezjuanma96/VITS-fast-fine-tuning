@@ -17,9 +17,9 @@ TODO list:
 - [x] Since the original Colab Notebook clones the original repo, using it won't have all these modifications, so create a new notebook to use until we might get a PR and Spanish can be used in the original one.
 - [ ] Since we are at it, create a README_ES.md file.
 - [x] Download part of the [CSS10 Dataset](https://www.kaggle.com/datasets/bryanpark/spanish-single-speaker-speech-dataset) to cover the same function as sample4ft did for the trilingual model. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
-- [ ] Attempted this one above, but we might need a database on multiple speakers, both for attempting to train a new model from scratch and for finetunnning our speaker, so We might generate a brand new db scrapped from different sources.}
+- [x] Attempted this one above, but we might need a database on multiple speakers, both for attempting to train a new model from scratch and for finetunnning our speaker, so We might generate a brand new db scrapped from different sources. **done it [here](https://huggingface.co/datasets/lopezjm96/spanish_voices)**
 - [ ] For whatever dataset we end up using, update or create a new config JSON (currently model uses [](configs/modified_finetune_speaker.json)) 
-- [ ] Ask why this happens when using hotfix (and if it could affect training):
+- [x] Ask why this happens when using hotfix (and if it could affect training):
 ```
 on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has no iteration so setting to default 0
 on checkpoint ./pretrained_models/G_trilingual.pth (actually our spanish model replacing G_trilingual) model has learning_rate so setting to default 0.001
@@ -31,8 +31,8 @@ on checkpoint ./pretrained_models/D_trilingual.pth model has no optimizer  so se
 ```
 - [ ] From above: Appareantly the model from coqui is not directly compatible with this, but using it runs training as if it was a new model, so, two options:
     - Find a way to adapt the coqui model to this
-    - First do the CSS10 Dataset item above, once that is done use it to retrain a compatible model from scratch, using it as the base user voice. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb)**
-- [ ] Ask if data_utils.py line 337 range second argument was correctly changed from 0 to -1, before it was missing checking the lowest bucket that on our data was empty (or maybe that bucket CAN NOT be empty)
+    - First do the CSS10 Dataset item above, once that is done use it to retrain a compatible model from scratch, using it as the base user voice. **Attempting [here](https://colab.research.google.com/github/lopezjuanma96/VITS-fast-fine-tuning/blob/main/ntbk/train.ipynb). Instead of that will try to train with [original repo for VITS model](https://github.com/jaywalnut310/vits) or [its adaptation used to train the Chinese-Japanese models on repo](https://github.com/CjangCjengh/vits) from fork.**
+- [x] Ask if data_utils.py line 337 range second argument was correctly changed from 0 to -1, before it was missing checking the lowest bucket that on our data was empty (or maybe that bucket CAN NOT be empty). **It seems to be okay to change that**
 
 [中文文档请点击这里](https://github.com/Plachtaa/VITS-fast-fine-tuning/blob/main/README_ZH.md)
 # VITS Fast Fine-tuning
